@@ -1,0 +1,133 @@
+<div class="settings mtb15">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <%- include("./partials/sidenav") %>
+      </div>
+      <div class="col-md-12 col-lg-9">
+        <div class="tab-content" id="v-pills-tabContent">
+
+          <div class="tab-pane fade active show" id="wallet" role="tabpanel" aria-labelledby="wallet-tab">
+            <div class="wallet">
+              <div class="row">
+                
+                <div class="col-md-12 col-lg-8">
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="coinBTC" role="tabpanel">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Funds breakdown</h5>
+                          <ul>
+                            <li class="d-flex justify-content-between align-items-center">
+                              <div class="d-flex align-items-center">
+                                <i>
+                                  <ion-icon class="icon" name="wallet"></ion-icon>
+                                </i>
+                                <h2>Deposit</h2>
+                              </div>
+                              <div>
+                                <h3><%=deposit%></h3>
+                              </div>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center">
+                              <div class="d-flex align-items-center">
+                                <i>
+                                  <ion-icon class="icon" name="logo-bitcoin"></ion-icon>
+                                </i>
+                                <h2>Earnings</h2>
+                              </div>
+                              <div>
+                                <h3><%=earning%></h3>
+                              </div>
+                            </li>
+                          </ul>
+                          <ul>
+                            <li class="d-flex justify-content-between align-items-center">
+                              <div class="d-flex align-items-center">
+                                <i>
+                                  <ion-icon class="icon" name="card"></ion-icon>
+                                </i>
+                                <h2>Withdraws</h2>
+                              </div>
+                              <div>
+                                <h3><%=withdraws%></h3>
+                              </div>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center">
+                              <div class="d-flex align-items-center">
+                                <i>
+                                  <ion-icon class="icon" name="cash"></ion-icon>
+                                </i>
+                                <h2>Balance</h2>
+                              </div>
+                              <div>
+                                <h3><%=balance%></h3>
+                              </div>
+                            </li>
+                          </ul>
+                          <!-- <button class="btn green">Deposit</button>
+                            <button class="btn red">Withdraw</button> -->
+                          <a href="/dashboard/withdraw" class="">
+                            <button class="btn red">
+                              Withdraw
+                            </button>
+                          </a>
+                          <a href="/dashboard/deposit" class="">
+                            <button class="btn green">
+                              Deposit
+                            </button>
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Latest Transactions</h5>
+                          <div class="wallet-history">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>No.</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                  <th>Amount</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% latestTransactions.forEach((e, i) => { %>
+                                <tr>
+                                  <td><%=i+1%></td>
+                                  <td><%=e.date%></td>
+                                  <td>
+                                    <% if (e.status == true) { %>
+                                    <i>
+                                      <ion-icon class="icon green" name="checkmark-circle-outline"></ion-icon>
+                                    </i>
+                                    <% } else { %>
+                                    <i>
+                                      <ion-icon class="icon red" name="alert-circle-outline"></ion-icon>
+                                    </i>
+                                    <% } %>
+                                  </td>
+                                  <td><%=e.amount%></td>
+                                </tr>
+                                <% }) %>
+                              </tbody>
+
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

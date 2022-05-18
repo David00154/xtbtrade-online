@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String              @id @default(uuid())
+  name               String
+  email              String              @unique
+  password           String
+  phoneNumber        String              @default("")
+  isAdmin            Boolean             @default(false)
+  createdAt          DateTime            @default(now())
+  notification       Notification[]
+  latestTransactions LatestTransaction[]
+  deposits           Deposit[]
+  stat               Stat?
+
+  @@map("users")
+}
+
+model Stat {
+  id        String   @id @default(uuid())
+  deposit   String   @default("0")
+  earning   String   @default("0")
+  balance   String   @default("0")
+  withdraws String   @default("0")
+  userId    String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("stats")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  title     String
+  body      String
+  userId    String
+  opened    Boolean  @default(false)
+  user      User     @relation(fields: [userId], references: [id])
+  date      String
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
+
+model session {
+  sid    String   @id @db.VarChar
+  sess   Json     @db.Json
+  expire DateTime @db.Timestamp(6)
+
+  @@index([expire], map: "IDX_session_expire")
+}
+
+model LatestTransaction {
+  id        String   @id @default(uuid())
+  userId    String
+  amount    String
+  status    Boolean  @default(false)
+  date      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("latest-transactions")
+}
+
+model Deposit {
+  id        String   @id @default(uuid())
+  userId    String
+  amount    String
+  address   String
+  recieved  Boolean  @default(false)
+  date      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("deposits")
+}

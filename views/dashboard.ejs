@@ -1,0 +1,48 @@
+<div class="px-3">
+    <header class="flex justify-between mb-4">
+        <h1 class="lg:text-3xl text-2xl font-tf-medium" style="color: var(--text-color)">Transactons</h1>
+    </header>
+    <!--  -->
+    <div class="flex lg:flex-row flex-col items-center justify-center gap-3">
+        <!-- <div class="bg-[#242526] w-36 px-2 py-2 flex flex-col">
+            <span class="inline-block text-sm  font-tf-medium text-[#ccc]">Deposit</span>
+        </div> -->
+        <div class="flex flex-col bg-[#242526] p-5 rounded-xl w-full lg:w-48 h-48  justify-end shadow-md">
+            <i class='bx bxs-bank mb-6 text-[#32c46e] text-5xl'></i>
+            <span class="inline-block text-lg font-tf-medium text-[#ccc]">Deposit</span>
+            <span class="text-4xl text-white mt-2 font-tf-medium">
+                <%=deposit%>
+            </span>
+        </div>
+        <div class="flex flex-col bg-[#242526] p-5 rounded-xl w-full lg:w-48 h-48 justify-end shadow-md">
+            <i class='bx bxl-bitcoin mb-6 text-[#32c46e] text-5xl'></i>
+            <span class="inline-block text-lg font-tf-medium text-[#ccc]">Earning</span>
+            <span class="text-4xl text-white mt-2 font-tf-medium">
+                <%=earning%>
+            </span>
+        </div>
+        <div class="flex flex-col bg-[#242526] p-5 rounded-xl w-full lg:w-48 h-48 justify-end shadow-md">
+            <i class='bx bxs-credit-card mb-6 text-[#32c46e] text-5xl'></i>
+            <span class="inline-block text-lg font-tf-medium text-[#ccc]">Balance</span>
+            <span class="text-4xl text-white mt-2 font-tf-medium">
+                <%=balance%>
+            </span>
+        </div>
+        <div class="flex flex-col bg-[#242526] p-5 rounded-xl w-full lg:w-48 h-48 justify-end shadow-md">
+            <i class='bx bxs-wallet mb-6 text-[#32c46e] text-5xl'></i>
+            <span class="inline-block text-lg font-tf-medium text-[#ccc]">Withdraws</span>
+            <span class="text-4xl text-white mt-2 font-tf-medium">
+                <%=withdraws%>
+            </span>
+        </div>
+    </div>
+
+    <header class="flex justify-between mt-5">
+        <h1 class="lg:text-3xl text-2xl font-tf-medium" style="color: var(--text-color)">Future transactions</h1>
+    </header>
+
+    <div class="mt-" id="coinmarketcap-widget-coin-price-block" coins="1,1027,825,3890,1839" currency="USD" theme="dark"
+        transparent="true" show-symbol-logo="true"></div>
+
+
+</div>

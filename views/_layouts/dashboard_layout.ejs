@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>
+		<%= title %> - Binterest
+	</title>
+	<link
+		href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp|Material+Icons+Round|Material+Icons+Outlined"
+		rel="stylesheet" />
+
+	<!----===== Boxicons CSS ===== -->
+	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/dashboard.css" />
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> -->
+</head>
+
+<style>
+	:root {
+		--color-primary: #7380ec;
+		--color-danger: #ff7782;
+		--color-success: #42f1b6;
+		--color-warning: #ffbb55;
+		--color-white: #fff;
+		--color-info-dark: #7d8da1;
+		--color-info-light: #dce1eb;
+		--color-dark: #363949;
+		--color-light: rgba(132, 139, 200, 0.18);
+		--color-primary-variant: #111e88;
+		--color-dark-variant: #677483;
+		--color-background: #f6f6f9;
+
+		--card-border-radius: 2rem;
+		--border-radius-1: 0.4rem;
+		--border-radius-2: 0.8rem;
+		--border-radius-3: 1.2rem;
+
+		--card-padding: 1.8rem;
+		--padding-1: 1.2rem;
+
+		--box-shadow: 0 2rem 3rem var(--color-light);
+	}
+</style>
+
+<body class="dark">
+	<%- include("../partials/sidebar") %>
+		<main class="home">
+			<%- include("../partials/dashboard-header") %>
+				<div class=" lg:px-[24px] px-[15px] py-[16px]">
+					<!-- <div class="overflow-x-scroll"></div> -->
+					<%- body %>
+						<!-- </div> -->
+				</div>
+		</main>
+		<script src="/js/script.js"></script>
+		<script>
+			const body = document.querySelector('body'),
+				sidebar = body.querySelector('nav'),
+				toggle = body.querySelector(".toggle"),
+				searchBtn = body.querySelector(".search-box"),
+				modeSwitch = body.querySelector(".toggle-switch"),
+				modeText = body.querySelector(".mode-text");
+			_menuBtn = body.querySelector("#menu-btn");
+
+			toggle.addEventListener("click", () => {
+				sidebar.classList.toggle("close");
+			})
+
+			_menuBtn.addEventListener("click", function () {
+				sidebar.classList.toggle("close-sidebar");
+			})
+
+			// searchBtn.addEventListener("click", () => {
+			// 	sidebar.classList.remove("close");
+			// })
+
+			modeSwitch.addEventListener("click", () => {
+				body.classList.toggle("dark");
+
+				if (body.classList.contains("dark")) {
+					modeText.innerText = "Dark mode";
+				} else {
+					modeText.innerText = "Light mode";
+
+				}
+			});
+		</script>
+		<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script>
+</body>
+
+</html>

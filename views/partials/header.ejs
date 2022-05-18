@@ -1,0 +1,38 @@
+<section class="content-sticky z-[999]">
+  <%- include ("./prices-slider") %>
+  <nav class="flex flex-row bg-white py-[1rem] w-full content-center justify-between items-center shadow px-[4%] h-auto">
+    <!-- <img class="w-[42.7px] h-[42.7px]" src="images/loading-img.png" alt="" srcset="" /> -->
+    <a href="/" class="text-custom-blue font-tf-demi-bold text-3xl my-1 md:my-0">xtbonline</a>
+
+    <ul class="flex lg:flex-row flex-col absolute lg:relative lg:top-0 left-0 right-0 top-[99%] md:top-[95%] lg:pt-0 pt-4 md:h-auto md:my-1 h-screen bg-white z-[-1] xl:z-0 w-full px-[5%] lg:px-0 md:justify-center nav-links" id="menu-items-to-toggle">
+      <li class="mb-6 lg:mb-0 ">
+        <a href="/" class="font-tf-medium text-black text-lg lg:px-3 lg:py-2">Home</a>
+      </li>
+      <li class="mb-6 lg:mb-0 ">
+        <a href="/about" class="font-tf-medium text-black text-lg lg:px-3 lg:py-2">About</a>
+      </li>
+      <li class="mb-6 lg:mb-0 ">
+        <a href="/contact-us" class="font-tf-medium text-black text-lg lg:px-3 lg:py-2">Contact</a>
+      </li>
+      <li class="mb-4 bg-custom-blue w-full md:max-w-sm text-center py-3 rounded-md lg:hidden">
+        <a href="/user/signup" class="font-tf-medium text-white text-lg w-full inline-block">Get started</a>
+      </li>
+      <li class="bg-white w-full text-center py-3 rounded-md border-2 border-custom-blue lg:hidden md:max-w-sm">
+        <a href="/user/login" class="font-tf-medium text-custom-blue text-lg w-full inline-block">Sign
+          in</a>
+      </li>
+    </ul>
+    <ul class="flex flex-row justify-end xl:w-[30%] md:w-[30%] w-[50%]">
+      <li class="mb-3 hidden lg:flex md:mr-7 md:my-0 my-1">
+        <a href="/user/login" class="font-tf-medium text-black text-lg py-2 w-full inline-block">Sign in</a>
+      </li>
+      <li class="mr-5 lg:mr-0 md:my-0 my-1">
+        <a href="/user/signup" class=" bg-custom-blue text-white font-tf-medium  px-3 py-2 text-center rounded-md text-sm w-full inline-block">Get
+          started</a>
+      </li>
+      <li class="justify-center flex align-middle lg:my-0 my-1 cursor-pointer lg:hidden" id="menu-btn">
+        <div class="fas fa-bars text-2xl" />
+      </li>
+    </ul>
+  </nav>
+</section>

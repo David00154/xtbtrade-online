@@ -1,0 +1,44 @@
+<%- include ("./partials/header.ejs") %>
+<section class="auth-page h-full w-full bg-custom-blue lg:px-[5%] flex flex-col justify-center items-center">
+  <h1 class="mb-10 h-8 text-3xl leading-[1.13] text-center text-white font-tf-medium hidden sm:inline-block">
+    Create
+    your account
+  </h1>
+  <div class="flex flex-col max-w-md bg-white justify-center items-center md:rounded-md rounded-none p-6 mb-6">
+    <div>
+      <% if (error_msg !="" ) { %>
+      <p class="text-red-600 mt-0 mb-4 text-base font-tf-regular">Error: <%= error_msg %> *</p>
+      <% } %>
+      <% if (success_msg !="" ) { %>
+      <p class="text-green-600 mt-0 mb-4 text-base font-tf-regular">Success: <%= success_msg %> *</p>
+      <% } %>
+      <form action="/user/signup" method="post" class="flex flex-shrink-0 flex-col">
+        <div class="flex flex-row gap-3 lg:gap-4">
+          <%- include ("./partials/signup-input-form.ejs", {label: "First name*" ,
+                                    placeholder: "First name" , id: "firstname" }) %>
+          <%- include ("./partials/signup-input-form.ejs", {label: "Last name*" ,
+                                        placeholder: "Last name" , id: "lastname" }) %>
+        </div>
+        <div class="mb-4">
+          <%- include ("./partials/signup-input-form.ejs", {label: "Email*" , placeholder: "Email"
+                                    , id: "email" }) %>
+        </div>
+        <div class="mb-4">
+          <%- include ("./partials/signup-input-form.ejs", {label: "Password*" ,
+                                    placeholder: "Password" , id: "password" }) %>
+        </div>
+        <div class="flex flex-row items-center mb-4">
+          <button id="signup-check-box" role="checkbox" class="mr-3 h-6 min-w-[24px] w-6 border-2 border-gray-600 rounded-sm flex justify-center items-center select-none relative" type="button" aria-checked="false" data-type="multiple" aria-label="I certify that I am 18 years of age or older, and agree to the User Agreement and Privacy Policy."></button>
+          <p class="block m-0 leading-[1.4] font-tf-regular text-base text-gray-700">
+            I certify that I am 18 years of age or older, and agree to the User Agreement and
+            Privacy
+            Policy.
+          </p>
+        </div>
+        <button class="bg-custom-blue text-white p-3 w-full rounded-md text-lg font-tf-medium disabled:opacity-50" disabled type="submit" id="auth-menu-btn">Create
+          account</button>
+      </form>
+    </div>
+  </div>
+  <div class="text-lg font-tf-medium text-white text-center mb-6">Already have an account? <a href="/user/login" class="cursor-pointer">Log in</a></div>
+</section>

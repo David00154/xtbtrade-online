@@ -1,0 +1,47 @@
+<div class="content-sticky flex flex-row items-center py-[16px] lg:px-[24px] px-[13px] border-b border-b-[rgba(138,145,158,0.2)] w-full justify-between"
+    style="background: inherit !important;">
+    <div class="items-center flex justify-start">
+        <button id="menu-btn" class="focus:outline-none md:hidden flex">
+            <!-- <span class="material-icons-outlined text-3xl header-icon">
+                menu
+            </span> -->
+            <i class='bx bx-menu text-3xl header-icon'></i>
+        </button>
+        <h1 class="md:text-[1.5rem] text-xl font-tf-medium lg:flex hidden lg:ml-6" style="color: var(--text-color)">
+            <%=title%>
+        </h1>
+    </div>
+    <!-- <div class="theme-toggler">
+        <span class="material-icons-sharp active">light_mode</span>
+        <span class="material-icons-sharp">dark_mode</span>
+    </div> -->
+    <div class="flex flex-row md:gap-5 gap-4 items-center">
+        <a href="#"
+            class="border border-[rgba(138,145,158,0.2)] h-10 w-10 inline-flex justify-center items-center cursor-pointer rounded-full relative">
+            <span class="material-icons-outlined text-[19px] header-icon">
+                notifications
+            </span>
+            <span
+                class="inline-block bg-color-danger py-[4px] px-[4px] text-xs rounded-full font-tf-regular absolute top-[-10px] right-[-8px] text-center"
+                style="color: white;">30</span>
+        </a>
+        <div class="w-[1px] h-10 self-center  mx-3" style="background: var(--text-color);"></div>
+        <div class="profile flex text-right gap-4 w-full">
+            <div class="info">
+                <p class="font-tf-regular" style="color: var(--text-color)">Hey, <b>
+                        <%=name%>
+                    </b></p>
+                <small class="text-muted font-tf-medium" style="color: var(--text-color)">
+                    <%=user.isAdmin ? "Administrator" : "Client" %>
+                </small>
+            </div>
+            <div class="overflow-hidden rounded-full h-10 w-10 md:inline-block hidden">
+                <img src="https://images.coinbase.com/avatar?h=5f46ef5e1f41ac006ac00SOKQaIfx4xRRezm79015xx0BA1iZT1oAAEvorEa%0AQkBw&s=128"
+                    alt="" class="h-10 w-10">
+                <!-- <span class="material-icons-round h-full w-full">
+                    account_circle
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>

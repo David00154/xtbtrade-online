@@ -1,0 +1,109 @@
+<style>
+  body {
+    overflow: hidden;
+  }
+
+  .loader {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9901;
+    opacity: 1;
+    background-color: #FFFFFF;
+    visibility: visible;
+    -webkit-transition: all .35s ease-out;
+    transition: all .35s ease-out;
+    display: grid;
+    place-content: center;
+
+  }
+
+  .loader-inner {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    /* background-color: red; */
+  }
+
+  .loader-opac {
+    background-image: url("/images/loading-img.png");
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    opacity: .3;
+    /* position: relative; */
+  }
+
+  .loader-main {
+    background-image: url("/images/loading-img.png");
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    /* height: 0%; */
+    left: 0;
+    overflow: hidden;
+
+    /*  */
+    transition: 0s;
+    /* animation: imgLoading 6s linear infinite; */
+    /* will-change: height, opacity;
+    transform-origin: 0 100%; */
+  }
+</style>
+<div id="loader" class="loader">
+  <div class="loader-inner">
+    <div class="loader-opac"></div>
+    <div id="loader-main" class="loader-main" :style="{
+    display: 'block', height: height + '%'}"></div>
+  </div>
+</div>
+
+
+<script src="https://unpkg.com/vue@3"></script>
+
+<script>
+  const {
+    createApp,
+    ref
+  } = Vue
+
+  createApp({
+    setup() {
+      const height = ref(20)
+      const stopGrowing = () => {
+        let $load = document.getElementById('loader')
+        setTimeout(function() {
+          $load.style.display = "none";
+          document.body.style['overflow-y'] = 'auto'
+        }, 500)
+      };
+      setInterval(() => {
+        if (height.value == 100) {
+          height.value = 0;
+        }
+        height.value++
+      }, 100)
+
+      return {
+        height,
+        stopGrowing
+      }
+    },
+    mounted() {
+      this.height = 0
+      setTimeout(() => this.stopGrowing(), 10500)
+    },
+  }).mount('#loader')
+</script>

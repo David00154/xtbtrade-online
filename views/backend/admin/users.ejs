@@ -1,0 +1,104 @@
+<div class="settings mtb15">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <%- include("../partials/sidenav") %>
+      </div>
+      <div class="col-md-12 col-lg-9">
+        <div class="tab-content" id="v-pills-tabContent">
+
+          <div class="tab-pane fade active show" id="withdraw" role="tabpanel" aria-labelledby="wallet-tab">
+            <div class="wallet">
+              <div class="row">
+                <div class="col-md-12 col-lg-12 mr-2">
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="coinBTC" role="tabpanel">
+
+                      <!-- <div class="vh-100 d-flex justify-content-center"> -->
+                      <!-- </div> -->
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">List Of Users</h5>
+                          <div class="wallet-history">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>No.</th>
+                                  <th>Name</th>
+                                  <th>Id</th>
+                                  <th>Balance</th>
+                                  <th>Deposit</th>
+                                  <th>Withdraws</th>
+                                  <th>Earning</th>
+                                  <th>Email</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% users.forEach((e, i) => { %>
+                                <tr>
+                                  <td><%=i+1%></td>
+                                  <td><%=e.name%></td>
+                                  <td><%=e.id%></td>
+                                  <td><%=e.stat.balance%></td>
+                                  <td><%=e.stat.deposit%></td>
+                                  <td><%=e.stat.withdraws%></td>
+                                  <td><%=e.stat.earning%></td>
+                                  <td><%=e.email%></td>
+                                </tr>
+                                <% }) %>
+                              </tbody>
+
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">List Of Users Deposit</h5>
+                          <div class="wallet-history">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>No.</th>
+                                  <th>Id</th>
+                                  <th>Address</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Recieved</th>
+                                  <th>Email</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% users.forEach(data => { %>
+                                <% data.deposits.forEach((e, i) => { %>
+                                <tr>
+                                  <td><%=i+1%></td>
+                                  <td><%=e.userId%></td>
+                                  <td><%=e.address%></td>
+                                  <td><%=e.amount%></td>
+                                  <td><%=e.createdAt%></td>
+                                  <td><%=e.recieved%></td>
+                                  <td><%=e.user.email%></td>
+                                </tr>
+                                <% }) %>
+                                <% }) %>
+                              </tbody>
+
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

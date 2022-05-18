@@ -1,0 +1,76 @@
+<div class="settings mtb15">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-lg-3">
+        <%- include("../partials/sidenav") %>
+      </div>
+      <div class="col-md-12 col-lg-9">
+        <div class="tab-content" id="v-pills-tabContent">
+
+          <div class="tab-pane fade active show" id="withdraw" role="tabpanel" aria-labelledby="wallet-tab">
+            <div class="wallet">
+              <div class="row">
+                <div class="col-md-12 col-lg-8 mr-2">
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="coinBTC" role="tabpanel">
+                      <% if (error_msg !="" ) { %>
+                      <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                          <use xlink:href="#exclamation-triangle-fill" />
+                        </svg>
+                        <div>
+                          <strong>Error: </strong>
+                          <%=error_msg%>
+                        </div>
+                      </div>
+                      <% } %>
+                      <% if (success_msg !="" ) { %>
+                      <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                          <use xlink:href="#check-circle-fill" />
+                        </svg>
+                        <div>
+                          <strong>Success: </strong>
+                          <%= success_msg %>
+                        </div>
+                      </div>
+                      <% } %>
+                      <!-- <div class="vh-100 d-flex justify-content-center"> -->
+
+                      <div class="form-access mx-auto">
+                        <form action="/admin/update-user" method="post">
+                          <span>Update a user</span>
+                          <div class="form-group">
+                            <input type="text" name="uid" class="form-control" placeholder="User Id">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="earning" class="form-control" placeholder="Earning">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="balance" class="form-control" placeholder="Balance">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="deposit" class="form-control" placeholder="Deposit">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="withdraws" class="form-control" placeholder="Withdraws">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                      </div>
+                      <!-- </div> -->
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

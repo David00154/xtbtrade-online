@@ -1,0 +1,63 @@
+<div class="nav flex-column nav-pills settings-nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <!-- <a class="nav-link" id="settings-profile-tab"  href="#settings-profile" role="tab" aria-controls="settings-profile" aria-selected="true"><i class="icon ion-md-person"></i> Profile</a> -->
+  <a class="nav-link _tab" id="dashboard-tab" href="/dashboard" role="tab" aria-selected="true">
+    <i>
+      <ion-icon class="icon" name="grid"></ion-icon>
+    </i>
+    Dashboard</a>
+  <a class="nav-link _tab" id="wallet-tab" href="/dashboard/wallet" role="tab" aria-controls="wallet" aria-selected="true">
+    <i>
+      <ion-icon class="icon" name="wallet"></ion-icon>
+    </i>
+    Wallet</a>
+  <a class="nav-link _tab" id="withdraw-tab" href="/dashboard/withdraw" role="tab" aria-controls="withdraw-tab" aria-selected="true">
+    <i>
+      <ion-icon class="icon" name="card"></ion-icon>
+    </i>
+    Withdraw</a>
+  <a class="nav-link _tab" id="deposit-tab" href="/dashboard/deposit" role="tab" aria-controls="deposit-tab" aria-selected="true">
+    <i>
+      <ion-icon class="icon" name="cash"></ion-icon>
+    </i>
+    Deposit</a>
+  <% if (user.isAdmin) { %>
+  <a class="nav-link _tab" id="users-tab" href="/admin/users" role="tab" aria-controls="users-tab" aria-selected="true">
+    <i>
+      <ion-icon class="icon" name="people"></ion-icon>
+    </i>
+    Users</a>
+  <a class="nav-link _tab" id="update-person-tab" href="/admin/update-person" role="tab" aria-controls="update-person-tab" aria-selected="true">
+    <i>
+      <ion-icon class="icon" name="person"></ion-icon>
+    </i>
+    Update Person</a>
+  <a class="nav-link _tab" id="send-notification-tab" href="/admin/send-notification" role="tab" aria-controls="send-notification-tab" aria-selected="true">
+    <i>
+      <ion-icon class="icon" name="logo-rss"></ion-icon>
+    </i>
+    Send Notification</a>
+  <!-- <a class="nav-link _tab" id="delete-user-tab" href="/admin/delete-user" role="tab" aria-controls="delete-user-tab" aria-selected="true">
+    <i>
+      <ion-icon class="icon" name="trash"></ion-icon>
+    </i>
+    Delete User</a> -->
+  <% } %>
+</div>
+
+<script>
+  let tabs = document.getElementsByClassName('_tab')
+  let _location = window.location.href
+  for (let index = 0; index < tabs.length; index++) {
+    let element = tabs[index]
+    console.log(element.href, _location)
+    if (element.href == _location) {
+      console.log("True")
+      element.classList.toggle('active')
+      break
+    }
+    // else {
+    //   console.log("False")
+    //   break
+    // }
+  }
+</script>

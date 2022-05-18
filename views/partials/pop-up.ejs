@@ -1,0 +1,119 @@
+<style>
+  .pop-up {
+    font-family: TTFirsNeue-Regular;
+    max-height: 130px;
+    bottom: 18px;
+    left: -17px;
+    position: fixed;
+    padding: 0.9rem 1rem;
+    margin: 0.8rem 1rem;
+    max-width: 270px;
+    --tw-bg-opacity: 1;
+    background-color: #e8e8e8;
+    font-style: normal;
+    font-size: 14.8px;
+    border-left-width: 1rem;
+    border-color: #0052ff;
+    border-left-style: solid;
+    border-right-style: solid;
+    /* border-width: 1rem; */
+    border-right-width: 1px;
+    -webkit-box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    z-index: 99999999999;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    place-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+
+  .pop-up p {
+    color: black;
+  }
+
+  .pop-up .close-container {
+    margin-bottom: 0.2rem;
+    width: 100%;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: end;
+  }
+
+  .pop-up .close-container span {
+    font-size: 20px;
+  }
+
+  .pop-up #balance {
+    color: #0052ff;
+  }
+
+  .pop-up.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+  }
+
+  .pop-up.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+  }
+
+  @keyframes slide-out {
+    0% {
+      -webkit-transform: translateX(0%);
+      transform: translateX(0%);
+    }
+
+    100% {
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+  }
+
+  @-webkit-keyframes slide-out {
+    0% {
+      -webkit-transform: translateX(0%);
+    }
+
+    100% {
+      -webkit-transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slide-in {
+    100% {
+      left: 0;
+      -webkit-transform: translateX(0%);
+      transform: translateX(0%);
+    }
+  }
+
+  @-webkit-keyframes slide-in {
+    100% {
+      -webkit-transform: translateX(0%);
+    }
+  }
+</style>
+
+<div class="pop-up" id="pop-up">
+  <div class="close-container">
+    <span class="material-symbols-outlined">
+      close
+    </span>
+  </div>
+  <p class="pop-text">
+    Someone from <span id="country"></span> just earned
+    <br />
+    <b id="balance"></b>
+  </p>
+</div>

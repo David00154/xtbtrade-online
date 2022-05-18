@@ -1,0 +1,32 @@
+<%- include ("./partials/header.ejs") %>
+<section class="auth-page h-screen w-full bg-custom-blue lg:px-[5%] flex flex-col items-center">
+  <h1 class="mb-10 h-8 text-3xl leading-[1.13] text-center text-white font-tf-medium mt-8">
+    Login in to Xtb Online Trade
+  </h1>
+  <div class="flex flex-col max-w-md bg-white justify-center items-center md:rounded-md rounded-none p-6 mb-6">
+    <div>
+      <% if (error !="" ) { %>
+      <p class="text-red-600 mt-0 mb-4 text-base font-tf-regular">Error: <%= error %> *</p>
+      <% } %>
+      <% if (success_msg !="" ) { %>
+      <p class="text-white bg-green-500 p-3 mt-0 mb-4 text-base font-tf-regular rounded-md">
+        Success: <%= success_msg %>
+      </p>
+      <% } %>
+      <form action="/user/login" method="post" class="flex flex-shrink-0 flex-col">
+        <div class="mb-4">
+          <%- include ("./partials/signup-input-form.ejs", {label: "Email*" ,
+                                            placeholder: "Email" , id: "email" }) %>
+        </div>
+        <div class="mb-4">
+          <%- include ("./partials/signup-input-form.ejs", {label: "Password*" ,
+                                            placeholder: "Password" , id: "password" , type: "password" }) %>
+        </div>
+        <button class="bg-custom-blue text-white p-3 w-full rounded-md text-lg font-tf-medium
+                                 type=" submit">Sign
+          in</button>
+      </form>
+    </div>
+  </div>
+  <div class="text-lg font-tf-medium text-white text-center mb-6">Don't have an account? <a href="/user/signup" class="cursor-pointer">Sign up</a></div>
+</section>
