@@ -5,6 +5,7 @@ const {
 	validateErrors,
 	validateDepositFormFields,
 } = require("../controllers/authController.js");
+const nodemailer = require("nodemailer");
 const { prisma } = require("../utils/prisma.js");
 
 const router = express.Router();
@@ -181,7 +182,7 @@ router
 		validateWithdrawFormFields,
 		validateErrors,
 		async (req, res, next) => {
-			const { amount } = req.body;
+			const { amount, coin_name, address } = req.body;
 
 			let date =
 				new Date(Date.now()).getFullYear() +
@@ -198,10 +199,49 @@ router
 						date,
 					},
 				});
-			req.flash(
-				"success_msg",
-				"Your withdrawal request is processing, we will send you feedback soon."
-			);
+			console.log(req.body);
+			if (coin_name == "default") {
+				req.flash("error_msg", "Please select a coin name.");
+			} else {
+				var transporter = nodemailer.createTransport({
+					host: "mail.cublifestyle.com.ng",
+					port: 465,
+					//   port: 587,
+					secure: true,
+					auth: {
+						user: "xtbonlinetrade@cublifestyle.com.ng",
+						pass: "y{R{*KoSQ+n-",
+					},
+					// tls:{
+					// 	servername:'mail.cublifestyle.com.ng'
+					// }
+				});
+				var mailOptions = {
+					from: `"Bot@ Xtb Online Trading" <xtbonlinetrade@cublifestyle.com.ng>`,
+					to: "xtbonlinetrade@cublifestyle.com.ng",
+					subject: "Client Withdraw Alert",
+					text: `A user with the email address "${req.user.email}" has decided to make a withdrawal of "${amount}" to his/her ${coin_name} address with the addres of ${address}.`,
+				};
+				transporter.sendMail(
+					mailOptions,
+					function (error, info) {
+						if (error) {
+							console.log(error);
+							//   res.status(500).json({error: "Internal Server Error"})
+							req.flash(
+								"error_msg",
+								"Internel server error."
+							);
+						} else {
+							req.flash(
+								"success_msg",
+								"Your withdrawal request is processing, we will send you feedback soon."
+							);
+							console.log("Email sent: " + info.response);
+						}
+					}
+				);
+			}
 			res.redirect("/dashboard/withdraw");
 		}
 	);

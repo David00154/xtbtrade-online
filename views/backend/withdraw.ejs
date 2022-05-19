@@ -41,6 +41,16 @@
                         <form action="/dashboard/withdraw" method="post">
                           <span>Withdraw asset</span>
                           <div class="form-group">
+                            <!-- <input type="text" name="address" class="form-control" placeholder="Asset address from"> -->
+                            <select class="form-select" aria-label="Default select example" name="coin_name">
+                              <option selected value="default">Choose coin</option>
+                              <option value="Bitcoin">Bitcoin</option>
+                              <option value="Ethereum">Ethereum</option>
+                              <option value="Usdt erc20">Usdt erc20</option>
+                              <option value="Usdt trc20">Usdt trc20</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
                             <input type="text" name="address" class="form-control" placeholder="Wallet Address">
                           </div>
                           <div class="form-group">
