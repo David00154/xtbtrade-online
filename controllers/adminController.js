@@ -49,6 +49,52 @@ const updateUserStat = async (req, res, next) => {
 	res.redirect("/admin/update-person");
 	next();
 };
+
+const deleteUser = async (req, res, next) => {
+	const { user_id } = req.params;
+	const deleteNotification = prisma.notification.deleteMany({
+		where: {
+			userId: user_id,
+		},
+	});
+	const deleteLatestTransaction =
+		prisma.latestTransaction.deleteMany({
+			where: {
+				userId: user_id,
+			},
+		});
+	const deleteDeposits = prisma.deposit.deleteMany({
+		where: {
+			userId: user_id,
+		},
+	});
+	const deleteStat = prisma.stat.deleteMany({
+		where: {
+			userId: user_id,
+		},
+	});
+
+	const deleteUser = prisma.user.delete({
+		where: {
+			id: user_id,
+		},
+	});
+
+	const transaction = await prisma.$transaction([
+		deleteNotification,
+		deleteDeposits,
+		deleteLatestTransaction,
+		deleteStat,
+		deleteUser,
+	]);
+	console.log(transaction);
+	req.flash(
+		"success_msg",
+		`User ${transaction.at(4).name} has been deleted`
+	);
+	res.redirect("/admin/users");
+	next();
+};
 //
 const validateUpdateUserFields = oneOf([
 	[
@@ -89,4 +135,5 @@ module.exports = {
 	validateUpdateUserFields,
 	updateUserStat,
 	sendNotification,
+	deleteUser,
 };

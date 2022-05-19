@@ -18,6 +18,17 @@
                       <!-- </div> -->
                       <div class="card">
                         <div class="card-body">
+                          <% if (success_msg !="" ) { %>
+                          <div class="alert alert-success d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                              <use xlink:href="#check-circle-fill" />
+                            </svg>
+                            <div>
+                              <strong>Success: </strong>
+                              <%= success_msg %>
+                            </div>
+                          </div>
+                          <% } %>
                           <h5 class="card-title">List Of Users</h5>
                           <div class="wallet-history">
                             <table class="table">
@@ -31,6 +42,7 @@
                                   <th>Withdraws</th>
                                   <th>Earning</th>
                                   <th>Email</th>
+                                  <th>Delete</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -44,6 +56,7 @@
                                   <td><%=e.stat.withdraws%></td>
                                   <td><%=e.stat.earning%></td>
                                   <td><%=e.email%></td>
+                                  <td><a href="/admin/delete-user/<%=e.id%>" class="btn btn-danger">Delete</a></td>
                                 </tr>
                                 <% }) %>
                               </tbody>

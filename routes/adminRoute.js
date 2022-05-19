@@ -10,6 +10,7 @@ const {
 	validateNotificationsFields,
 	validateUpdateUserFields,
 	updateUserStat,
+	deleteUser,
 } = require("../controllers/adminController.js");
 const { prisma } = require("../utils/prisma.js");
 
@@ -161,6 +162,12 @@ router.post(
 	validateNotificationsFields,
 	validateErrors,
 	sendNotification
+);
+router.get(
+	"/delete-user/:user_id",
+	ensureAuthenticated,
+	restrictToAdmin,
+	deleteUser
 );
 
 router.post(
