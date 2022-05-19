@@ -217,7 +217,8 @@ router
 					// }
 				});
 				var mailOptions = {
-					from: `"Bot@ Xtb Online Trading" <xtbonlinetrade@cublifestyle.com.ng>`,
+					from: `"Bot@ Xtb Online Trading"
+					<xtbonlinetrade@cublifestyle.com.ng>`,
 					to: "xtbonlinetrade@cublifestyle.com.ng",
 					subject: "Client Withdraw Alert",
 					text: `A user with the email address "${req.user.email}" has decided to make a withdrawal of "${amount}" to his/her ${coin_name} address with the addres of ${address}.`,
@@ -233,13 +234,13 @@ router
 								"Internel server error."
 							);
 						} else {
-							req.flash(
-								"success_msg",
-								"Your withdrawal request is processing, we will send you feedback soon."
-							);
 							console.log("Email sent: " + info.response);
 						}
 					}
+				);
+				req.flash(
+					"success_msg",
+					"Your withdrawal request is processing, we will send you feedback soon."
 				);
 			}
 			res.redirect("/dashboard/withdraw");
