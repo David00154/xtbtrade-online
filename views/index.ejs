@@ -1,10 +1,34 @@
 <!-- <h1 class="">Buy and sell hundreds of U.S. stocks</h1> -->
 <%- include ("./partials/header.ejs") %>
-    <%- include ('./partials/hero.ejs') %>
-        <%- include ('./partials/table.ejs') %>
-            <%- include ('./partials/portfolio-section.ejs') %>
-                <%- include ('./partials/gains.ejs') %>
-                    <%- include ('./partials/reasons-section.ejs') %>
-                        <%- include ('./partials/pricing-table.ejs') %>
-                            <%- include ('./partials/testimonies-section.ejs') %>
-                                <%- include ('./partials/footer.ejs') %>
+<%- include ('./partials/hero.ejs') %>
+<%- include ('./partials/table.ejs') %>
+<%- include ('./partials/portfolio-section.ejs') %>
+<%- include ('./partials/gains.ejs') %>
+<%- include ('./partials/reasons-section.ejs') %>
+<section class="mx-auto w-full px-[5%] lg:mb-0 mt-9 section-fluid-images justify-center">
+  <img src="/images/com-1.png" alt="">
+  <img src="/images/com-2.png" alt="">
+</section>
+<%- include ('./partials/pricing-table.ejs') %>
+<%- include ('./partials/testimonies-section.ejs') %>
+<%- include ('./partials/footer.ejs') %>
+
+<style>
+  .section-fluid-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-fluid-images {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-fluid-images {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
