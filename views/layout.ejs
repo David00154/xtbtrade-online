@@ -31,7 +31,6 @@
 
 <body>
   <main style="overflow-x: hidden;">
-    <%- include ('./partials/preloader.ejs') %>
     <%- include ('./partials/pop-up.ejs') %>
     <%- body %>
   </main>
@@ -67,22 +66,20 @@
   <script src="/js/faker.js"></script>
   <script>
     window.addEventListener("load", () => {
-      setTimeout(() => {
-        AOS.init({
-          duration: 1000,
-          easing: 'ease-in-out',
-          once: false,
-          mirror: true
-        })
-      }, 9000)
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: false,
+        mirror: true
+      })
       document.getElementById("country").textContent = faker.address.country();
       document.getElementById("balance").textContent =
         "$" + faker.finance.amount().split(".").join(",") + 0;
-      document.getElementById("pop-up").classList.toggle("slide-in");
+      // document.getElementById("pop-up").classList.toggle("slide-in");
 
-      setTimeout(() => {
-        document.getElementById("pop-up").classList.toggle("slide-out");
-      }, 6000);
+      // setTimeout(() => {
+      //   document.getElementById("pop-up").classList.toggle("slide-out");
+      // }, 6000);
       setInterval(() => {
         document.getElementById("country").textContent = faker.address.country();
         document.getElementById("balance").textContent =
