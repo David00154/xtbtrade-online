@@ -166,6 +166,7 @@
     })
   }
   btcButton.onclick = () => {
+  console.log(<%= email %>)
     navigator.clipboard.writeText("3Qff8WZTvfdDqSJg6spiEH1aYQovaQoT5k").then(() => {
       // navigator.clipboard.writeText("138Qp8AuGMiaznizSiQxHEBWMdxbRs8TTv").then(() => {
       btcButton.textContent = "COPIED"
