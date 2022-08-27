@@ -34,6 +34,8 @@ const sendNotification = async (req, res, next) => {
 	// req.flash("success_msg", "Email and notification sent boss");
 	// res.redirect("/admin/send-notification");
 	// next();
+	// console.log(body.replace("&#10", "<br />").replace("&#13", "<br />"));
+	// console.log(body)
 
 	let transporter = nodemailer.createTransport({
 		host: "mailer.xtbtradingonline.space",
@@ -51,7 +53,7 @@ const sendNotification = async (req, res, next) => {
 		to: email,
 		subject: title,
 		// text: body,
-		html: emailTemplate({ body: body, title: title, url: "xtbtradingonline.space" }),
+		html: emailTemplate({ body: body.replace("\n", "<br />"), title: title, url: "xtbtradingonline.space" }),
 	};
 	transporter.sendMail(mailOptions, function (error, info) {
 		if (error != null) {
@@ -68,6 +70,8 @@ const sendNotification = async (req, res, next) => {
 			next();
 		}
 	});
+	// res.redirect("/admin/send-notification");
+	// next();
 };
 
 const updateUserStat = async (req, res, next) => {
