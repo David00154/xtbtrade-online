@@ -14,12 +14,7 @@ const MongoStore = require("connect-mongo");
 // import appRoute from "./routes/appRoute.js";
 // import userRoute from "./routes/userRoute.js";
 // import adminRoute frp
-const {
-	adminRoute,
-	userRoute,
-	appRoute,
-	dashboardRoute,
-} = require("./routes/index.js");
+const { adminRoute, userRoute, appRoute, dashboardRoute } = require("./routes/index.js");
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
@@ -85,7 +80,7 @@ app.use("/dashboard", dashboardRoute);
 // 	);
 // });
 
-const port = process.env.PORT || 500;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
 	console.log(`Server started on port ${port}`);
