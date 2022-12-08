@@ -77,47 +77,20 @@ const sendNotification = async (req, res, next) => {
 const updateUserStat = async (req, res, next) => {
 	const { earning, balance, deposit, withdraws, uid } = req.body;
 
-	try {
-		let formerData = await prisma.stat.findUnique({
-			where: {
-				userId: uid,
-			},
-		});
-
-		// console.log(formerData);
-		const updatedUser = await prisma.stat.update({
-			where: {
-				userId: uid,
-			},
-			data: {
-				balance: (parseInt(formerData["balance"]) + parseInt(balance)).toString(),
-				earning: (parseInt(formerData["earning"]) + parseInt(earning)).toString(),
-				deposit: (parseInt(formerData["deposit"]) + parseInt(deposit)).toString(),
-				withdraws: (parseInt(formerData["withdraws"]) + parseInt(withdraws)).toString(),
-			},
-		});
-		req.flash("success_msg", "User updated");
-		res.redirect("/admin/update-person");
-		next();
-	} catch (e) {
-		console.log("error23456");
-		console.log(e);
-		req.flash("error_msg", "Error");
-		res.redirect("/admin/update-person");
-		next();
-	}
-
-	// const updatedUser = await prisma.stat.update({
-	// 	where: {
-	// 		userId: uid,
-	// 	},
-	// 	data: {
-	// 		balance,
-	// 		earning,
-	// 		deposit,
-	// 		withdraws,
-	// 	},
-	// });
+	const updatedUser = await prisma.stat.update({
+		where: {
+			userId: uid,
+		},
+		data: {
+			balance,
+			earning,
+			deposit,
+			withdraws,
+		},
+	});
+	req.flash("success_msg", "User updated");
+	res.redirect("/admin/update-person");
+	next();
 };
 
 const deleteUser = async (req, res, next) => {
