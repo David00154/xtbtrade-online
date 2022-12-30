@@ -38,18 +38,18 @@ const sendNotification = async (req, res, next) => {
 	// console.log(body)
 
 	let transporter = nodemailer.createTransport({
-		host: "mailing.xtbtradingonline.space",
+		host: "mailer.xtbtradingonline.space",
 		port: 465,
 		//   port: 587,
 		secure: true,
 		auth: {
-			user: "support@mailing.xtbtradingonline.space",
+			user: "support@mailer.xtbtradingonline.space",
 			pass: "5tuQkEC;=!w@",
 		},
 	});
 	let mailOptions = {
 		from: `"Admin@ Xtb Online Trading"
-			<support@mailing.xtbtradingonline.space>`,
+			<support@mailer.xtbtradingonline.space>`,
 		to: email,
 		subject: title,
 		// text: body,
