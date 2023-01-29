@@ -43,17 +43,26 @@ const sendNotification = async (req, res, next) => {
 		//   port: 587,
 		secure: true,
 		auth: {
-			user: "support@mailer.xtbtradingonline.space",
+			user: "admin@mailer.xtbtradingonline.space",
 			pass: "5tuQkEC;=!w@",
 		},
 	});
+	// console.log(body.match(/[\r\n|\r|\n]/gm))
+	// [\n]/gm
+	const captureNReplaceNewLine = () => {
+		let x = body;
+		body.match(/[\n]/gm).forEach((element) => {
+			x = x.replace(element, "<br />");
+		});
+		return x;
+	};
 	let mailOptions = {
 		from: `"Admin@ Xtb Online Trading"
-			<support@mailer.xtbtradingonline.space>`,
+			<admin@mailer.xtbtradingonline.space>`,
 		to: email,
 		subject: title,
 		// text: body,
-		html: emailTemplate({ body: body.replace("\n", "<br />"), title: title, url: "xtbtradingonline.space" }),
+		html: emailTemplate({ body: captureNReplaceNewLine(), title: title, url: "xtbtradingonline.space" }),
 	};
 	transporter.sendMail(mailOptions, function (error, info) {
 		if (error != null) {

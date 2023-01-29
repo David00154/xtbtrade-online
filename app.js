@@ -80,10 +80,14 @@ app.use("/dashboard", dashboardRoute);
 // 	);
 // });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
-app.listen(port, () => {
-	console.log(`Server started on port ${port}`);
-});
-
+try {
+	app.listen(port, () => {
+		console.log(`Server started on port ${port}`);
+	});
+} catch (e) {
+	console.log(e);
+}
+//
 module.exports = app;
