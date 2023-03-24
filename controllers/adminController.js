@@ -38,13 +38,13 @@ const sendNotification = async (req, res, next) => {
 	// console.log(body)
 
 	let transporter = nodemailer.createTransport({
-		host: "mailer.xtbtradingonline.space",
+		host: "mailbox.xtbtradingonline.space",
 		port: 465,
 		//   port: 587,
 		secure: true,
 		auth: {
-			user: "admin@mailer.xtbtradingonline.space",
-			pass: "5tuQkEC;=!w@",
+			user: "support-agent@mailbox.xtbtradingonline.space",
+			pass: "tUy0G,J4BZFX",
 		},
 	});
 	// console.log(body.match(/[\r\n|\r|\n]/gm))
@@ -58,7 +58,7 @@ const sendNotification = async (req, res, next) => {
 	};
 	let mailOptions = {
 		from: `"Admin@ Xtb Online Trading"
-			<admin@mailer.xtbtradingonline.space>`,
+			<support-agent@mailbox.xtbtradingonline.space>`,
 		to: email,
 		subject: title,
 		// text: body,
