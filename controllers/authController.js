@@ -63,10 +63,7 @@ const signup = async (req, res) => {
         },
       },
     });
-    req.flash(
-      "success_msg",
-      "Signup successful. We sent an account verification link to your email"
-    );
+    req.flash("success_msg", "Signup successful!");
     res.redirect("/user/signup");
     // }
   } catch (error) {
