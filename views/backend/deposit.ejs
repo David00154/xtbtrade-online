@@ -1,21 +1,36 @@
 <div class="settings mtb15">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12 col-lg-3">
-        <%- include("./partials/sidenav") %>
-      </div>
+      <div class="col-md-12 col-lg-3"><%- include("./partials/sidenav") %></div>
       <div class="col-md-12 col-lg-9">
         <div class="tab-content" id="v-pills-tabContent">
-
-          <div class="tab-pane fade active show" id="withdraw" role="tabpanel" aria-labelledby="wallet-tab">
+          <div
+            class="tab-pane fade active show"
+            id="withdraw"
+            role="tabpanel"
+            aria-labelledby="wallet-tab"
+          >
             <div class="wallet">
               <div class="row">
                 <div class="col-md-12 col-lg-8 mr-2">
                   <div class="tab-content">
-                    <div class="tab-pane fade show active" id="coinBTC" role="tabpanel">
+                    <div
+                      class="tab-pane fade show active"
+                      id="coinBTC"
+                      role="tabpanel"
+                    >
                       <% if (error_msg !="" ) { %>
-                      <div class="alert alert-danger d-flex align-items-center" role="alert">
-                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+                      <div
+                        class="alert alert-danger d-flex align-items-center"
+                        role="alert"
+                      >
+                        <svg
+                          class="bi flex-shrink-0 me-2"
+                          width="24"
+                          height="24"
+                          role="img"
+                          aria-label="Danger:"
+                        >
                           <use xlink:href="#exclamation-triangle-fill" />
                         </svg>
                         <div>
@@ -23,10 +38,18 @@
                           <%=error_msg%>
                         </div>
                       </div>
-                      <% } %>
-                      <% if (success_msg !="" ) { %>
-                      <div class="alert alert-success d-flex align-items-center" role="alert">
-                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                      <% } %> <% if (success_msg !="" ) { %>
+                      <div
+                        class="alert alert-success d-flex align-items-center"
+                        role="alert"
+                      >
+                        <svg
+                          class="bi flex-shrink-0 me-2"
+                          width="24"
+                          height="24"
+                          role="img"
+                          aria-label="Success:"
+                        >
                           <use xlink:href="#check-circle-fill" />
                         </svg>
                         <div>
@@ -42,28 +65,65 @@
                           <span>Deposit to your wallet</span>
 
                           <div class="form-group">
-                            <input type="text" name="amount" class="form-control" placeholder="Deposit amount">
+                            <input
+                              type="text"
+                              name="amount"
+                              class="form-control"
+                              placeholder="Deposit amount"
+                            />
                           </div>
                           <div class="form-group">
-                            <input type="text" name="amount" class="form-control" placeholder="Deposit amount">
+                            <input
+                              type="text"
+                              name="amount"
+                              class="form-control"
+                              placeholder="Deposit amount"
+                            />
                           </div>
-                          <button type="submit" class="btn btn-primary">Deposit</button>
+                          <button type="submit" class="btn btn-primary">
+                            Deposit
+                          </button>
                         </form>
                       </div>
                       <!-- </div> -->
                       <!-- Bitcoin -->
                       <div class="card mt-4">
                         <div class="card-body">
-                          <h5 class="card-title">Bitcoin Wallet Deposit Address</h5>
+                          <h5 class="card-title">
+                            Bitcoin Wallet Deposit Address
+                          </h5>
                           <div class="row wallet-address">
                             <div class="col-md-12">
-                              <p>Deposits to this address are unlimited. Note that you may not be able to withdraw all
-                                of your
-                                funds at once if you deposit more than your daily withdrawal limit.</p>
+                              <p>
+                                Deposits to this address are unlimited. Note
+                                that you may not be able to withdraw all of your
+                                funds at once if you deposit more than your
+                                daily withdrawal limit.
+                              </p>
                               <div class="input-group">
-                                <input type="text" class="form-control" value="3Qff8WZTvfdDqSJg6spiEH1aYQovaQoT5k" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
-                                <div class=" input-group-prepend">
-                                  <button id="btc-button" class="btn btn-primary">COPY</button>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  value="bc1qmvy8feydpynqn8gp6yvhvdrelcvnr8fpa7z8ne"
+                                  style="
+                                    -moz-user-select: none;
+                                    -webkit-user-select: none;
+                                    -ms-user-select: none;
+                                    user-select: none;
+                                    -o-user-select: none;
+                                  "
+                                  unselectable="on"
+                                  onselectstart="return false;"
+                                  onmousedown="return false;"
+                                  id="btc-value"
+                                />
+                                <div class="input-group-prepend">
+                                  <button
+                                    id="btc-button"
+                                    class="btn btn-primary"
+                                  >
+                                    COPY
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -74,16 +134,41 @@
                       <!-- Ethereum -->
                       <div class="card mt-4">
                         <div class="card-body">
-                          <h5 class="card-title">Ethereum Wallet Deposit Address</h5>
+                          <h5 class="card-title">
+                            Ethereum Wallet Deposit Address
+                          </h5>
                           <div class="row wallet-address">
                             <div class="col-md-12">
-                              <p>Deposits to this address are unlimited. Note that you may not be able to withdraw all
-                                of your
-                                funds at once if you deposit more than your daily withdrawal limit.</p>
+                              <p>
+                                Deposits to this address are unlimited. Note
+                                that you may not be able to withdraw all of your
+                                funds at once if you deposit more than your
+                                daily withdrawal limit.
+                              </p>
                               <div class="input-group">
-                                <input type="text" class="form-control" value="0x8cA0AEaB56FE3129eA253418BCC64c424a9d72c" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  value="0x2aBf12e11dcCB8ecF9522453BD41FF4b67b085Fd"
+                                  style="
+                                    -moz-user-select: none;
+                                    -webkit-user-select: none;
+                                    -ms-user-select: none;
+                                    user-select: none;
+                                    -o-user-select: none;
+                                  "
+                                  unselectable="on"
+                                  onselectstart="return false;"
+                                  onmousedown="return false;"
+                                  id="eth-value"
+                                />
                                 <div class="input-group-prepend">
-                                  <button id="eth-button" class="btn btn-primary">COPY</button>
+                                  <button
+                                    id="eth-button"
+                                    class="btn btn-primary"
+                                  >
+                                    COPY
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -94,16 +179,41 @@
                       <!-- Usdt erc20 -->
                       <div class="card mt-4">
                         <div class="card-body">
-                          <h5 class="card-title">USDT erc20 Wallet Deposit Address</h5>
+                          <h5 class="card-title">
+                            USDT erc20 Wallet Deposit Address
+                          </h5>
                           <div class="row wallet-address">
                             <div class="col-md-12">
-                              <p>Deposits to this address are unlimited. Note that you may not be able to withdraw all
-                                of your
-                                funds at once if you deposit more than your daily withdrawal limit.</p>
+                              <p>
+                                Deposits to this address are unlimited. Note
+                                that you may not be able to withdraw all of your
+                                funds at once if you deposit more than your
+                                daily withdrawal limit.
+                              </p>
                               <div class="input-group">
-                                <input type="text" class="form-control" value="0xc53E1E10b903d11680025Ff86c9ECD00208C7659" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;" id="erc20-value">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  value="0x2aBf12e11dcCB8ecF9522453BD41FF4b67b085Fd"
+                                  style="
+                                    -moz-user-select: none;
+                                    -webkit-user-select: none;
+                                    -ms-user-select: none;
+                                    user-select: none;
+                                    -o-user-select: none;
+                                  "
+                                  unselectable="on"
+                                  onselectstart="return false;"
+                                  onmousedown="return false;"
+                                  id="erc20-value"
+                                />
                                 <div class="input-group-prepend">
-                                  <button id="erc20-button" class="btn btn-primary">COPY</button>
+                                  <button
+                                    id="erc20-button"
+                                    class="btn btn-primary"
+                                  >
+                                    COPY
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -114,34 +224,54 @@
                       <!-- Usdt trc20 -->
                       <div class="card mt-4">
                         <div class="card-body">
-                          <h5 class="card-title">USDT trc20 Wallet Deposit Address</h5>
+                          <h5 class="card-title">
+                            USDT trc20 Wallet Deposit Address
+                          </h5>
                           <div class="row wallet-address">
                             <div class="col-md-12">
-                              <p>Deposits to this address are unlimited. Note that you may not be able to withdraw all
-                                of your
-                                funds at once if you deposit more than your daily withdrawal limit.</p>
+                              <p>
+                                Deposits to this address are unlimited. Note
+                                that you may not be able to withdraw all of your
+                                funds at once if you deposit more than your
+                                daily withdrawal limit.
+                              </p>
                               <div class="input-group">
-                                <input type="text" class="form-control" value="TWVZR6KC4DqYq2Wwg1HCPkiaEEKaiJMzQh
-                                " style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;" id="trc20-value">
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  value="TKLNySPTXQwU7pT4y8pUBfXhnV5Qa6xhMK
+                                "
+                                  style="
+                                    -moz-user-select: none;
+                                    -webkit-user-select: none;
+                                    -ms-user-select: none;
+                                    user-select: none;
+                                    -o-user-select: none;
+                                  "
+                                  unselectable="on"
+                                  onselectstart="return false;"
+                                  onmousedown="return false;"
+                                  id="trc20-value"
+                                />
                                 <div class="input-group-prepend">
-                                  <button id="trc20-button" class="btn btn-primary">COPY</button>
+                                  <button
+                                    id="trc20-button"
+                                    class="btn btn-primary"
+                                  >
+                                    COPY
+                                  </button>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-
-
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>
@@ -149,49 +279,47 @@
 </div>
 
 <script>
-  let trc20Button = document.getElementById('trc20-button')
-  let btcButton = document.getElementById('btc-button')
-  let ethButton = document.getElementById('eth-button')
-  let erc20Button = document.getElementById('erc20-button')
+  let trc20Button = document.getElementById("trc20-button");
+  let btcButton = document.getElementById("btc-button");
+  let ethButton = document.getElementById("eth-button");
+  let erc20Button = document.getElementById("erc20-button");
 
-  let erc20Value = document.getElementById('erc20-value')
-  let trc20Value = document.getElementById('trc20-value')
+  let erc20Value = document.getElementById("erc20-value");
+  let trc20Value = document.getElementById("trc20-value");
+  let ethValue = document.getElementById("eth-value");
+  let btcValue = document.getElementById("btc-value");
 
   trc20Button.onclick = () => {
     navigator.clipboard.writeText(trc20Value.value).then(() => {
-      trc20Button.textContent = "COPIED"
+      trc20Button.textContent = "COPIED";
       setTimeout(() => {
-        trc20Button.textContent = "COPY"
-      }, 800)
-    })
-  }
+        trc20Button.textContent = "COPY";
+      }, 800);
+    });
+  };
   btcButton.onclick = () => {
-  console.log(`Assert ${"<%= email %>" == "xtbonlinetrade.fx@gmail.com"}`)
-    navigator.clipboard.writeText("<%= email %>" == "xtbonlinetrade.fx@gmail.com" ? "3Qff8WZTvfdDqSJg6spiEH1aYQovaQoT5k" : "138Qp8AuGMiaznizSiQxHEBWMdxbRs8TTv").then(() => {
-      // navigator.clipboard.writeText("138Qp8AuGMiaznizSiQxHEBWMdxbRs8TTv").then(() => {
-      btcButton.textContent = "COPIED"
+    navigator.clipboard.writeText(btcValue.value).then(() => {
+      btcButton.textContent = "COPIED";
       setTimeout(() => {
-        btcButton.textContent = "COPY"
-      }, 800)
-    })
-  }
+        btcButton.textContent = "COPY";
+      }, 800);
+    });
+  };
   ethButton.onclick = () => {
-  console.log(`Assert ETH ${"<%= email %>" == "xtbonlinetrade.fx@gmail.com"}`)
-    navigator.clipboard.writeText("<%= email %>" == "xtbonlinetrade.fx@gmail.com" ? "0x8cA0AEaB56FE3129eA253418BCC64c424a9d72Fc" : "0xeefc41436b93f815bB9e660Aa24557FE0a3f3f9f").then(() => {
+    navigator.clipboard.writeText(ethValue.value).then(() => {
       // navigator.clipboard.writeText("0x9c41CA5EF30802e81a70Fda1Dff69e263436bEa8").then(() => {
-      ethButton.textContent = "COPIED"
+      ethButton.textContent = "COPIED";
       setTimeout(() => {
-        ethButton.textContent = "COPY"
-      }, 800)
-    })
-  }
+        ethButton.textContent = "COPY";
+      }, 800);
+    });
+  };
   erc20Button.onclick = () => {
-    console.log(`Assert USDT ${"<%= email %>" == "xtbonlinetrade.fx@gmail.com"}`)
-    navigator.clipboard.writeText("<%= email %>" == "xtbonlinetrade.fx@gmail.com" ? "0xc53E1E10b903d11680025Ff86c9ECD00208C7659" : "0x9c41CA5EF30802e81a70Fda1Dff69e263436bEa8").then(() => {
-      erc20Button.textContent = "COPIED"
+    navigator.clipboard.writeText(erc20Value.value).then(() => {
+      erc20Button.textContent = "COPIED";
       setTimeout(() => {
-        erc20Button.textContent = "COPY"
-      }, 800)
-    })
-  }
+        erc20Button.textContent = "COPY";
+      }, 800);
+    });
+  };
 </script>
