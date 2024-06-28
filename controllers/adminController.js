@@ -45,11 +45,18 @@ const sendNotification = async (req, res, next) => {
   // [\n]/gm
   const captureNReplaceNewLine = () => {
     let x = body;
-    body.match(/[\n]/gm).forEach((element) => {
-      x = x.replace(element, "<br />");
-    });
+    /**
+     * @type {String[]|null}
+     */
+    let match = body.match(/[\n]/gm);
+    if (match) {
+      match.forEach((element) => {
+        x = x.replace(element, "<br />");
+      });
+    }
     return x;
   };
+  console.log(email);
   let mailOptions = {
     from: `"Admin@ Xtb Online Trading"
 			<${mailConfig.auth.user}>`,
