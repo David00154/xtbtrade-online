@@ -4,6 +4,9 @@ const nodemailer = require("nodemailer");
 const { emailTemplate } = require("../utils/emailTemplate");
 
 const { mailConfig } = require("../utils/mailConfig.js");
+const {
+  PrismaClientUnknownRequestError,
+} = require("@prisma/client/runtime/library");
 
 const sendNotification = async (req, res, next) => {
   const { email, title, body } = req.body;
@@ -106,7 +109,32 @@ const updateUserStat = async (req, res, next) => {
   res.redirect("/admin/update-person");
   next();
 };
-
+const updateAccountStatus = async (req, res, next) => {
+  try {
+    const { status, uid } = req.body;
+    console.log("here ", req.body);
+    const updatedUser = await prisma.user.update({
+      where: {
+        id: uid,
+      },
+      data: {
+        account_status: status,
+      },
+    });
+    req.flash("success_msg", "Account status updated");
+    res.redirect("/admin/update-account-status");
+    next();
+  } catch (error) {
+    if (error instanceof PrismaClientUnknownRequestError) {
+      req.flash("error_msg", error.message);
+      res.redirect("back");
+    } else {
+      req.flash("error_msg", "Internal Server Error");
+      res.redirect("back");
+    }
+    next();
+  }
+};
 const deleteUser = async (req, res, next) => {
   const { user_id } = req.params;
   const deleteNotification = prisma.notification.deleteMany({
@@ -161,6 +189,16 @@ const validateUpdateUserFields = oneOf([
   ],
 ]);
 
+const validateUpdateAccountStatusFields = oneOf([
+  [
+    // body("uid").if
+    body("uid").exists().withMessage("Enter a user id to update"),
+    body("status")
+      .notEmpty()
+      .withMessage("Please add account status for the user"),
+  ],
+]);
+
 const validateNotificationsFields = oneOf([
   [
     body("title").notEmpty().withMessage("Title field is required"),
@@ -172,7 +210,9 @@ const validateNotificationsFields = oneOf([
 module.exports = {
   validateNotificationsFields,
   validateUpdateUserFields,
+  validateUpdateAccountStatusFields,
   updateUserStat,
   sendNotification,
   deleteUser,
+  updateAccountStatus,
 };

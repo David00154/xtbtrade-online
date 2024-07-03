@@ -27,6 +27,7 @@ router.route("/").get(ensureAuthenticated, async (req, res) => {
       stat: { balance, deposit, earning, withdraws },
       notification,
       latestTransactions,
+      account_status,
     } = await prisma.user.findUnique({
       where: {
         id: req.user.id,
@@ -40,6 +41,7 @@ router.route("/").get(ensureAuthenticated, async (req, res) => {
             withdraws: true,
           },
         },
+        account_status: true,
         latestTransactions: {
           select: {
             amount: true,
@@ -66,6 +68,7 @@ router.route("/").get(ensureAuthenticated, async (req, res) => {
         deposit,
         balance,
         withdraws,
+        account_status,
         notification,
         email: req.user.email,
         extractScripts: true,
@@ -103,6 +106,7 @@ router.route("/wallet").get(ensureAuthenticated, async (req, res) => {
             withdraws: true,
           },
         },
+        account_status: true,
         latestTransactions: {
           select: {
             amount: true,
@@ -121,7 +125,7 @@ router.route("/wallet").get(ensureAuthenticated, async (req, res) => {
     res.render(
       "backend/wallet",
       buildObject({
-        title: "Withdraw",
+        title: "Wallet",
         layout: "backend/layout",
         user,
         name,
@@ -129,6 +133,7 @@ router.route("/wallet").get(ensureAuthenticated, async (req, res) => {
         earning,
         deposit,
         balance,
+        account_status,
         withdraws,
         latestTransactions,
         notification,

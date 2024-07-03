@@ -6,21 +6,37 @@
       </div>
       <div class="col-md-12 col-lg-9">
         <div class="tab-content" id="v-pills-tabContent">
-
-          <div class="tab-pane fade active show" id="withdraw" role="tabpanel" aria-labelledby="wallet-tab">
+          <div
+            class="tab-pane fade active show"
+            id="withdraw"
+            role="tabpanel"
+            aria-labelledby="wallet-tab"
+          >
             <div class="wallet">
               <div class="row">
                 <div class="col-md-12 col-lg-12 mr-2">
                   <div class="tab-content">
-                    <div class="tab-pane fade show active" id="coinBTC" role="tabpanel">
-
+                    <div
+                      class="tab-pane fade show active"
+                      id="coinBTC"
+                      role="tabpanel"
+                    >
                       <!-- <div class="vh-100 d-flex justify-content-center"> -->
                       <!-- </div> -->
                       <div class="card">
                         <div class="card-body">
                           <% if (success_msg !="" ) { %>
-                          <div class="alert alert-success d-flex align-items-center" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                          <div
+                            class="alert alert-success d-flex align-items-center"
+                            role="alert"
+                          >
+                            <svg
+                              class="bi flex-shrink-0 me-2"
+                              width="24"
+                              height="24"
+                              role="img"
+                              aria-label="Success:"
+                            >
                               <use xlink:href="#check-circle-fill" />
                             </svg>
                             <div>
@@ -37,6 +53,7 @@
                                   <th>No.</th>
                                   <th>Name</th>
                                   <th>Id</th>
+                                  <th>Account Status</th>
                                   <th>Balance</th>
                                   <th>Deposit</th>
                                   <th>Withdraws</th>
@@ -51,16 +68,22 @@
                                   <td><%=i+1%></td>
                                   <td><%=e.name%></td>
                                   <td><%=e.id%></td>
+                                  <td><%=e.account_status%></td>
                                   <td><%=e.stat.balance%></td>
                                   <td><%=e.stat.deposit%></td>
                                   <td><%=e.stat.withdraws%></td>
                                   <td><%=e.stat.earning%></td>
                                   <td><%=e.email%></td>
-                                  <td><a href="/admin/delete-user/<%=e.id%>" class="btn btn-danger">Delete</a></td>
+                                  <td>
+                                    <a
+                                      href="/admin/delete-user/<%=e.id%>"
+                                      class="btn btn-danger"
+                                      >Delete</a
+                                    >
+                                  </td>
                                 </tr>
                                 <% }) %>
                               </tbody>
-
                             </table>
                           </div>
                         </div>
@@ -82,8 +105,8 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <% users.forEach(data => { %>
-                                <% data.deposits.forEach((e, i) => { %>
+                                <% users.forEach(data => { %> <%
+                                data.deposits.forEach((e, i) => { %>
                                 <tr>
                                   <td><%=i+1%></td>
                                   <td><%=e.userId%></td>
@@ -93,23 +116,18 @@
                                   <td><%=e.recieved%></td>
                                   <td><%=e.user.email%></td>
                                 </tr>
-                                <% }) %>
-                                <% }) %>
+                                <% }) %> <% }) %>
                               </tbody>
-
                             </table>
                           </div>
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>

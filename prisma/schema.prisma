@@ -19,6 +19,7 @@ model User {
   latestTransactions LatestTransaction[]
   deposits           Deposit[]
   stat               Stat?
+  account_status     String              @default("")
 
   @@map("users")
 }
