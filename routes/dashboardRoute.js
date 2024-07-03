@@ -93,6 +93,7 @@ router.route("/wallet").get(ensureAuthenticated, async (req, res) => {
       stat: { balance, deposit, earning, withdraws },
       latestTransactions,
       notification,
+      account_status,
     } = await prisma.user.findUnique({
       where: {
         id: req.user.id,
