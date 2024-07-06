@@ -1,34 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= title %> - Xtb Online Trade</title>
+    <link
+      rel="icon"
+      href="https://crypo-laravel-live.netlify.app/assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://crypo-laravel-live.netlify.app/assets/css/style.css"
+    />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script> -->
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-    <%= title %> - Xtb Online Trade
-  </title>
-  <link rel="icon" href="https://crypo-laravel-live.netlify.app/assets/img/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://crypo-laravel-live.netlify.app/assets/css/style.css">
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script> -->
+  <body id="dark">
+    <%- include("./partials/header") %> <%- body %>
+    <!-- <script src="//code.tidio.co/9tljo50aq3hyaiclauw1hq6xtb2puv2k.js" async></script> -->
+    <!-- Start of Async Drift Code -->
+    <script async>
+      "use strict";
 
-</head>
+      !(function () {
+        var t = (window.driftt = window.drift = window.driftt || []);
+        if (!t.init) {
+          if (t.invoked)
+            return void (
+              window.console &&
+              console.error &&
+              console.error("Drift snippet included twice.")
+            );
+          (t.invoked = !0),
+            (t.methods = [
+              "identify",
+              "config",
+              "track",
+              "reset",
+              "debug",
+              "show",
+              "ping",
+              "page",
+              "hide",
+              "off",
+              "on",
+            ]),
+            (t.factory = function (e) {
+              return function () {
+                var n = Array.prototype.slice.call(arguments);
+                return n.unshift(e), t.push(n), t;
+              };
+            }),
+            t.methods.forEach(function (e) {
+              t[e] = t.factory(e);
+            }),
+            (t.load = function (t) {
+              var e = 3e5,
+                n = Math.ceil(new Date() / e) * e,
+                o = document.createElement("script");
+              (o.type = "text/javascript"),
+                (o.async = !0),
+                (o.crossorigin = "anonymous"),
+                (o.src =
+                  "https://js.driftt.com/include/" + n + "/" + t + ".js");
+              var i = document.getElementsByTagName("script")[0];
+              i.parentNode.insertBefore(o, i);
+            });
+        }
+      })();
+      drift.SNIPPET_VERSION = "0.3.1";
+      drift.load("p724gh5asz4a");
+    </script>
+    <!-- End of Async Drift Code -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script src="https://crypo-laravel-live.netlify.app/assets/js/jquery-3.4.1.min.js"></script>
 
-<body id="dark">
-  <%- include("./partials/header") %>
-  <%- body %>
-  <script src="//code.tidio.co/9tljo50aq3hyaiclauw1hq6xtb2puv2k.js" async></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script src="https://crypo-laravel-live.netlify.app/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="https://crypo-laravel-live.netlify.app/assets/js/popper.min.js"></script>
+    <script src="https://crypo-laravel-live.netlify.app/assets/js/bootstrap.min.js"></script>
+    <script src="https://crypo-laravel-live.netlify.app/assets/js/amcharts-core.min.js"></script>
+    <script src="https://crypo-laravel-live.netlify.app/assets/js/amcharts.min.js"></script>
 
-  <script src="https://crypo-laravel-live.netlify.app/assets/js/popper.min.js"></script>
-  <script src="https://crypo-laravel-live.netlify.app/assets/js/bootstrap.min.js"></script>
-  <script src="https://crypo-laravel-live.netlify.app/assets/js/amcharts-core.min.js"></script>
-  <script src="https://crypo-laravel-live.netlify.app/assets/js/amcharts.min.js"></script>
+    <script src="https://crypo-laravel-live.netlify.app/assets/js/custom.js"></script>
 
-  <script src="https://crypo-laravel-live.netlify.app/assets/js/custom.js"></script>
-
-  <%- script %>
-</body>
-
+    <%- script %>
+  </body>
 </html>
